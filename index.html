@@ -19,9 +19,16 @@
   <body>
     <!--  code  -->
     <!--  <div id="canvas"></div>  -->
-    <embed src="audio/bgm.mp3" autostart="true" 
-      style="position: absolute; opacity: 0; pointer-events: none;" >
+    <iframe type="audio/mpeg" src="audio/bgm.mp3" allow="autoplay; lazyload" style="display:none" id="iframeAudio" >
+    </iframe> 
+
+<!--     <embed type="audio/mpeg" src="audio/bgm.mp3" loop="true" style="position: absolute; opacity: 0; pointer-events: none;" />
+ -->
     <script>
+      setInterval(function() {
+        document.getElementById('iframeAudio').src = "audio/bgm.mp3";
+      }, 105000);
+
 
       function getFlameMaterial(isFrontSide){
         let side = isFrontSide ? THREE.FrontSide : THREE.BackSide;
